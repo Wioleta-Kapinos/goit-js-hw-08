@@ -15,10 +15,12 @@ const currentValues = JSON.parse(localStorage.getItem(STORAGE_KEY));
 form.addEventListener("submit", (event)=> {
    event.preventDefault();
    console.log(currentValues);
-   localStorage.clear();
+   localStorage.removeItem(STORAGE_KEY);
    form.reset();
 });
 window.addEventListener("load", () => {
-   inputEmail.value = currentValues.email || "";
-   inputMessage.value = currentValues.message || "";
+   if(currentValues !== null) {
+      inputEmail.value = currentValues.email;
+      inputMessage.value = currentValues.message;
+   };
 }); 

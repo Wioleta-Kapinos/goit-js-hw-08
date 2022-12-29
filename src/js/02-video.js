@@ -7,7 +7,7 @@ console.log(data);
 localStorage.setItem("videoplayer-current-time", JSON.stringify(data.seconds))
 }, 1000)
 );
-const time = localStorage.getItem("videoplayer-current-time");
+const time = localStorage.getItem("videoplayer-current-time") || 0;
 player.setCurrentTime(time).then(function(seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
